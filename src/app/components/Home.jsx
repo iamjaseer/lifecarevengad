@@ -54,10 +54,10 @@ export default async function Home() {
               <div>
                  <span className='heading-tertiary mb-3 text-tertiary'  dangerouslySetInnerHTML={{ __html: pageDataGet.homeAcf.missionHeading }} />
                 <p
-                  className='text-tertiary'
+                  className='text-tertiary mt-3'
 
                 >{pageDataGet.homeAcf.missionDescription}</p>
-                 <span className='heading-tertiary mt-5 mb-3 text-tertiary'  dangerouslySetInnerHTML={{ __html: pageDataGet.homeAcf.visionHeading }} />
+                 <span className='heading-tertiary mt-5 mb-3 text-tertiary d-block'  dangerouslySetInnerHTML={{ __html: pageDataGet.homeAcf.visionHeading }} />
                 <p className='text-tertiary'
 
                 >{pageDataGet.homeAcf.visionDescription} </p>
