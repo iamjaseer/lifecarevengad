@@ -1,0 +1,18 @@
+.form-control{
+    border: 1px solid #E8E8E8;
+    min-height: 70px;
+    padding: 5px 24px;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+.form-control:focus {
+   
+    border-color: $PC;
+    box-shadow: 0 0 0 0rem rgba(13,110,253,.25)!important;
+}
+
+textarea{ 
+    padding-top: 20px !important;
+    min-height: 150px !important;
+}

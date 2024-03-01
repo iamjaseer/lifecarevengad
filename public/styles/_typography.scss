@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'Circular Std';
+    src: url('../fonts/CircularStd-Medium.eot');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Circular Std';
+    src: local('../fonts/CircularStd-Medium'),
+        url('../fonts/CircularStd-Medium.ttf') format('truetype'),
+        url('../fonts/CircularStd-Medium.svg#CircularStd-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: url('../fonts/CircularStd-Book.eot');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Circular Std Book';
+    src: local('../fonts/CircularStd-Book'),
+        url('../fonts/CircularStd-Book.ttf') format('truetype'),
+        url('../fonts/CircularStd-Book.svg#CircularStd-Book') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+
+
+@mixin PRIMARY(){
+
+    $PRIMARY: 4.687vw;
+    font-size: $PRIMARY;
+
+    @media only screen and (max-width: 999px) {
+        font-size: $PRIMARY*2;
+    }
+
+    @media only screen and (max-width: 575px) {
+        font-size: $PRIMARY*2;
+    }
+
+}
+
+
+@mixin SECONDARY(){
+
+    $SECONDARY: 2.5vw;;
+    font-size: $SECONDARY;
+
+    @media only screen and (max-width: 999px) {
+        font-size: $SECONDARY*2;
+    }
+
+    @media only screen and (max-width: 575px) {
+        font-size: $SECONDARY*3;
+    }
+
+}
+
+
+@mixin TERTIARY(){
+
+    $TERTIARY: 1.5vw;
+    font-size: $TERTIARY;
+
+    @media only screen and (max-width: 999px) {
+        font-size: $TERTIARY*2;
+    }
+
+    @media only screen and (max-width: 575px) {
+        font-size: $TERTIARY*4;
+    }
+
+}
+
+
+@mixin BOX(){
+
+    $TERTIARY: 1.3vw;
+    font-size: $TERTIARY;
+
+    @media only screen and (max-width:1199px) {
+        font-size: $TERTIARY*2;
+    }
+
+    @media only screen and (max-width: 999px) {
+        font-size: $TERTIARY*2.5;
+    }
+
+    @media only screen and (max-width: 575px) {
+        font-size: $TERTIARY*3.3;
+    }
+
+}
+
+
+
+.heading-primary{
+    @include PRIMARY;
+    *{
+        @include PRIMARY;
+    }
+}
+.heading-secondary{
+    @include SECONDARY;
+    *{
+        @include SECONDARY;
+    }
+}
+.heading-tertiary{
+    @include TERTIARY;
+    *{
+        @include TERTIARY;
+    }
+}
+
+.heading-box{
+    @include BOX;
+    *{
+        @include BOX;
+    }
+}
+
+
+.text-small{
+    font-size: 14px;
+    *{
+        font-size: 14px;
+    }
+}
+
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Circular Std';
+    line-height: 1.3;
+}
+
+p{
+    font-size: 18px;
+    line-height: 1.8;;
+
+    @media only screen and (max-width: 575px) {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+

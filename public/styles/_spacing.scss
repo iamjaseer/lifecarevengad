@@ -1,0 +1,773 @@
+$LG: 1440px;
+$MD: 1199px;
+$MD_: 767px;
+$SM:575px;
+$XS:400px;
+
+.spacing-100 {
+
+    $size: 100;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-20+px 0;
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-50+px 0;
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: 50px 0;
+    }
+
+}
+
+
+.spacing-150 {
+
+    $size: 150;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-20+px 0;
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-50+px 0;
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: 50px 0;
+    }
+
+}
+
+
+.spacing-90 {
+
+    $size: 90;
+    padding: $size 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-20+px 0;
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-50+px 0;
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: 50px 0;
+    }
+
+}
+
+
+
+.spacing-80 {
+
+    $size: 80;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-20+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-50+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-70+px 0;
+
+    }
+
+}
+
+
+.spacing-70 {
+
+    $size: 70;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-20+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-50+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-70+px 0;
+
+    }
+
+}
+
+
+.spacing-60 {
+
+    $size: 60;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-(20)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-(40)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-(30)+px 0;
+
+    }
+
+}
+
+
+.spacing-50 {
+
+    $size: 50;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-(20)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-(20)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-(20)+px 0;
+
+    }
+}
+
+
+.spacing-40 {
+
+    $size: 40;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-(10)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-(10)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-(20)+px 0;
+
+    }
+}
+
+
+.spacing-32 {
+
+    $size: 32;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-(5)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-(10)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-(10)+px 0;
+
+    }
+}
+
+
+.spacing-24 {
+
+    $size: 24;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-(5)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-(7)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-(5)+px 0;
+
+    }
+}
+
+
+
+.spacing-20 {
+
+    $size: 20;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size) 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size) 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size) 0;
+
+    }
+}
+
+
+.spacing-16 {
+
+    $size: 16;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-(5)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-(7)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-(5)+px 0;
+
+    }
+}
+
+
+.spacing-15 {
+
+    $size: 15;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)+px 0;
+
+    }
+}
+
+
+.spacing-14 {
+
+    $size: 14;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)+px 0;
+
+    }
+}
+
+
+.spacing-12 {
+
+    $size: 12;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)+px 0;
+
+    }
+}
+
+
+
+.spacing-10 {
+
+    $size: 10;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)+px 0;
+
+    }
+}
+
+
+.spacing-8 {
+
+    $size: 8;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)+px 0;
+
+    }
+}
+
+
+.spacing-4 {
+
+    $size: 4;
+    padding: $size+px 0;
+
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)+px 0;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)+px 0;
+
+    }
+}
+
+.gap-heading {
+    gap: 50px;
+    display: grid;
+
+    @media only screen and (max-width: $LG) {
+        gap: 32px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        gap: 24px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        gap: 16px;
+
+    }
+
+}
+
+.gap-heading-md {
+    gap: 24px;
+    display: grid;
+
+    @media only screen and (max-width: $LG) {
+        gap: 24px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        gap: 24px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        gap: 16px;
+
+    }
+
+}
+
+
+.gap-heading-sm {
+    gap: 8px;
+    display: grid;
+
+    @media only screen and (max-width: $LG) {
+        gap: 8px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        gap: 6px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        gap: 4px;
+
+    }
+
+}
+
+
+.padding-100 {
+
+
+    $size: 100;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/1.5)+px;
+
+    }
+
+}
+
+.padding-90 {
+
+    $size: 90;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/1.5)+px;
+
+    }
+}
+
+.padding-80 {
+
+    $size: 80;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/1.5)+px;
+
+    }
+}
+
+.padding-70 {
+
+    $size: 70;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/1.5)+px;
+
+    }
+}
+
+.padding-60 {
+
+    $size: 60;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/1.5)+px;
+
+    }
+}
+
+.padding-50 {
+
+    $size: 50;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/1.5)+px;
+
+    }
+}
+
+.padding-40 {
+
+    $size: 40;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/2.5)+px;
+
+    }
+}
+
+.padding-32 {
+
+    $size: 32;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/2.5)+px;
+
+    }
+}
+
+.padding-24 {
+
+    $size: 24;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/2.5)+px;
+
+    }
+}
+
+.padding-20 {
+
+    $size: 20;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: ($size)-($size/2.5)+px;
+
+    }
+}
+
+.padding-16 {
+    $size: 16;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: $size+px;
+
+    }
+}
+
+.padding-15 {
+    $size: 15;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: 24px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: $size+px;
+
+    }
+}
+
+.padding-14 {
+    $size: 14;
+    padding: $size+px;
+
+    @media only screen and (max-width: $LG) {
+        padding: ($size)-($size/4)+px;
+
+    }
+
+    @media only screen and (max-width: $MD) {
+        padding: ($size)-($size/3)+px;
+
+    }
+
+    @media only screen and (max-width: $SM) {
+        padding: $size+px;
+
+    }
+}
+
+.padding-12 {
+    padding: 12px;
+}
+
+
+.padding-10 {
+    padding: 10px;
+}
+
+
+.padding-8 {
+    padding: 8px;
+}
+
+.padding-4 {
+    padding: 4px;
+}

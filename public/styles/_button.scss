@@ -1,0 +1,64 @@
+
+
+.btn{
+    text-transform: uppercase;
+    font-family: 'Circular Std';
+}
+
+.btn-primary{
+background: $SC;
+border-color: $SC;
+
+&:hover{
+    background-color: $SC-HOVER !important;
+    color: $WHITE!important;
+    border-color: $SC-HOVER!important;
+}
+}
+
+
+.btn-secondary{
+    background: $SC;
+    border-color: $SC;
+    
+    &:hover{
+        background-color: $SC-HOVER !important;
+        color: $WHITE!important;
+        border-color: $SC-HOVER!important;
+    }
+    }
+
+.btn-outline{
+    border-color: $WHITE;
+    color: $WHITE;
+}
+
+
+.btn-secondary-outline{
+    border-color: $SC;
+    color:  $SC;
+
+    &:hover{
+        background-color: $SC !important;
+        color: $WHITE!important;
+        border-color: $SC!important;
+    }
+}
+
+
+.btn-outline-primary{
+    border-color: $PC;
+    color:  $PC;
+
+    &:hover{
+        background-color: $PC !important;
+        color: $WHITE!important;
+        border-color: $PC!important;
+    }
+}
+
+.btn-sm-full{
+    @media only screen and (max-width: 575px) {
+min-width: 100% !important;
+    }
+}

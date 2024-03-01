@@ -1,0 +1,38 @@
+$BLACK: #050811;
+$WHITE:#fff;
+$BODY:#142044;
+$PC:#07BDCB;
+$PC-HOVER:#0297a1;
+$SC:#28428F;
+$SC-HOVER:#203575;
+$LIGHT:#E6F8FA;
+
+.text-primary{
+    color: $PC !important;
+}
+.text-tertiary{
+    color: $SC !important;
+}
+.bg-light{
+    background: $LIGHT!important;
+}
+.bg-primary{
+    background: $PC !important;
+    // &:after{
+    //     content: '';
+    //     background: $PC;
+    //   //  position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 0;
+    // bottom: 0;
+    // }
+
+    .btn{
+        color: $WHITE;
+        &:hover{
+            background: $WHITE;
+            color: $PC;
+        }
+    }
+}

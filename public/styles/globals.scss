@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+
+
+// @import "~tailwindcss/base"; 
+// @import "~tailwindcss/components"; 
+// @import "~tailwindcss/utilities";
+
+@import 'bootstrap';
+@import 'theme';
+
+
+.w-100, .wp-block-image img{
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+:where(.wp-block-columns.is-layout-flex) {
+    gap: 2em;
+}
+
+body{
+    margin: 0!important;
+    padding: 0 !important;
+}
