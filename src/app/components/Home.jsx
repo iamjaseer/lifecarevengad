@@ -17,20 +17,7 @@ export default async function Home() {
 
   return (
     <>
-      {/* HERO START */}
-      <section className="hero spacing-100 d-flex align-items-center text-white position-relative">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-            <h1 className='heading-primary mb-3' >{pageDataGet.homeAcf.bannerTitle}</h1>
-              <p
-              >{pageDataGet.homeAcf.bannerDescription}</p>
-            </div>
-          </div>
-        </div>
-        <Image quality={80} blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAJ0lEQVR4nGPY2fXjv458/H9Bbtf/IDbD/7v//8/Mvfq/J+nEfxAbAF3NFsFiuaE1AAAAAElFTkSuQmCC" width='1500' height='800' src={pageDataGet.homeAcf.bannerImage.node.sourceUrl} alt={pageDataGet.homeAcf.bannerImage.node.altText} />
-      </section>
-      {/* HERO END */}
+ 
       {/* ABOUT START */}
       <SectionBanner background={pageDataGet.homeAcf.aboutBackground.node.sourceUrl} heading={pageDataGet.homeAcf.aboutHeading} description={pageDataGet.homeAcf.aboutDescription} link={'specialties'} button={pageDataGet.homeAcf.button} />
       {/* ABOUT END */}
@@ -112,7 +99,7 @@ async function getPageData() {
       query: ` query Posts {
         pages(where: {title: "home"}) {
           edges {
-            node {
+            node {  
               id
               homeAcf {
                 aboutDescription
