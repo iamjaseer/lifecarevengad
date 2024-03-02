@@ -32,7 +32,24 @@ export default async function SepecialitiesPage() {
 
   return (<>
     {/* PAGE TITLE START */}
-    <SectionBanner type="page-heading" background={page[0].featuredImage.node.sourceUrl} heading={page[0].title} subHeading={page[0].pageACF.subHeading} description={page[0].title} />
+    {/* <SectionBanner type="page-heading" background={page[0].featuredImage.node.sourceUrl} heading={page[0].title} subHeading={page[0].pageACF.subHeading} description={page[0].title} /> */}
+    <div
+        style={{ background: `url(${page[0].featuredImage.node.sourceUrl})` }}
+        className="parallax-banner page-header aspect-[2/1] spacing-100 d-flex align-items-center justify-content-center text-center position-relative text-white"
+      >
+        <section className='cta'>
+          <div className="content d-flex align-items-center justify-content-center">
+            <div className="container">
+              <div className="row">
+                <div className="col-12">
+                  <h1 className='heading-secondary mb-sm-4 mb-2'>{page[0].title}</h1>
+                  <p className='mb-0 mt-sm-4 mt-2'>{page[0].pageACF.subHeading}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     {/* PAGE TITLE  END */}
     {/* ABOUT SECTION START */}
     <section className='about-section spacing-100 text-tertiary'>
