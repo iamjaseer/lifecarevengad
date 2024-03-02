@@ -59,9 +59,9 @@ switch(props.type) {
             <div className="content d-flex align-items-center justify-content-center">
               <div className="container">
                 <div className="row">
-                  <div className="col-12">
-                  <h1 data-aos="fade-up" className='heading-secondary mb-sm-4 mb-2'>{props.heading}</h1>
-                    <p className='mb-0 mt-sm-4 mt-2' data-aos="fade-up" data-aos-delay={500}>{props.subHeading}</p>
+                  <div className="col-12" data-aos="fade-up">
+                  <h1  className='heading-secondary mb-sm-4 mb-2'>{props.heading}</h1>
+                    <p className='mb-0 mt-sm-4 mt-2'>{props.subHeading}</p>
                   </div>
                 </div>
               </div>
