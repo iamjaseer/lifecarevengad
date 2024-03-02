@@ -22,10 +22,8 @@ export default async function Home() {
         <div className="container">
           <div className="row">
             <div className="col-12">
-            <h1 className='heading-primary mb-3' data-aos="fade-up">{pageDataGet.homeAcf.bannerTitle}</h1>
+            <h1 className='heading-primary mb-3' >{pageDataGet.homeAcf.bannerTitle}</h1>
               <p
-                data-aos="fade-up"
-                data-aos-delay={1000}
               >{pageDataGet.homeAcf.bannerDescription}</p>
             </div>
           </div>
