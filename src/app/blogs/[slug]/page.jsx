@@ -126,7 +126,7 @@ export default async function BlogsSinglePage({ params }) {
             <h1 className='heading-secondary text-tertiary'>{blogPosts[0].title}</h1>
             <p className='text-small text-primary my-4'>{formatBlogDate(blogPosts[0].date)}</p>
             {blogPosts[0].featuredImage == null ? '' : <Image quality={80} blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAJ0lEQVR4nGPY2fXjv458/H9Bbtf/IDbD/7v//8/Mvfq/J+nEfxAbAF3NFsFiuaE1AAAAAElFTkSuQmCC" width='1000' height='600' src={blogPosts[0].featuredImage.node.sourceUrl} className='w-100 d-block rounded-4 cover-image' alt={blogPosts[0].featuredImage.node.altText} />}
-            <div data-aos="fade-up" className="mt-3 blog-content" dangerouslySetInnerHTML={{ __html: blogPosts[0].content }} />
+            <div data-aos="fade-up" className="mt-5 blog-content" dangerouslySetInnerHTML={{ __html: blogPosts[0].content }} />
           </div>
         </div>
       </section>
