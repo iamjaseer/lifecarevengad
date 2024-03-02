@@ -2,15 +2,16 @@ import dynamic from 'next/dynamic';
 import Loading from './components/Loading';
 import { wordpressGraphQlApiUrl } from "../app/utils/variables";
 import Image from 'next/image';
+import HomePage from '../app/components/Home'
 
 export default async function Home() {
 
 
 
-  const Home = dynamic(() => import('../app/components/Home'), {
-    ssr: false,
-    loading: () => <Loading />
-  });
+  // const Home = dynamic(() => import('../app/components/Home'), {
+  //   ssr: false,
+  //   loading: () => <Loading />
+  // });
 
 
 
@@ -34,7 +35,7 @@ export default async function Home() {
         <Image quality={80} blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAJ0lEQVR4nGPY2fXjv458/H9Bbtf/IDbD/7v//8/Mvfq/J+nEfxAbAF3NFsFiuaE1AAAAAElFTkSuQmCC" width='1500' height='800' src={pageDataGet.bannerImage.node.sourceUrl} alt={pageDataGet.bannerImage.node.altText} />
       </section>
       {/* HERO END */}
-      <Home />
+      <HomePage />
 
     </>
 
