@@ -14379,6 +14379,9 @@ hr {
 .blog-content a {
   color: #07BDCB;
 }
+.blog-content img {
+  border-radius: 1rem !important;
+}
 
 @media only screen and (max-width: 575px) {
   .doctor-photo {
