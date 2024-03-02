@@ -18,9 +18,15 @@ export default async function Appoinment() {
 
   return (
     <>
-
       <section className="spacing-100">
         <div>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h1 className='heading-secondary text-primary mb-5'>Send us Your feedback!</h1>
+              </div>
+            </div>
+          </div>
           <ContactInfo />
         </div>
         <RoundAnimation />
@@ -36,12 +42,12 @@ export default async function Appoinment() {
 //PAGE QUERY
 async function getPageData() {
 
-  const res = await fetch(wordpressGraphQlApiUrl,  {
-  method: "POST",
-  headers: {
+  const res = await fetch(wordpressGraphQlApiUrl, {
+    method: "POST",
+    headers: {
       "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
+    },
+    body: JSON.stringify({
       query: ` query Posts {
         pages(where: {id: 1110}) {
           nodes {
@@ -78,20 +84,20 @@ async function getPageData() {
         }
   }
 `,
-  }),
-  next: { revalidate: 10 },
-},
-{
-  cache: 'force-cache' ,
-  cache: 'no-store'
-}
-)
+    }),
+    next: { revalidate: 10 },
+  },
+    {
+      cache: 'force-cache',
+      cache: 'no-store'
+    }
+  )
 
-if (!res.ok) {
-  throw new Error('Failed to fetch data')
-}
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
 
-return res.json()
+  return res.json()
 }
 
 
@@ -104,19 +110,19 @@ export async function generateMetadata() {
   console.log(pagedata.data.pages.nodespageDataGet)
 
   return {
-    title: pageDataGet[0].seo.title.replace('api.',''),
-    description:pageDataGet[0].seo.metaDesc.replace('api.',''),
+    title: pageDataGet[0].seo.title.replace('api.', ''),
+    description: pageDataGet[0].seo.metaDesc.replace('api.', ''),
     alternates: {
-      canonical: pageDataGet[0].seo.canonical.replace('api.',''),
+      canonical: pageDataGet[0].seo.canonical.replace('api.', ''),
     },
     openGraph: {
-      description: pageDataGet[0].seo.metaDesc.replace('api.',''),
-      siteName: pageDataGet[0].seo.opengraphSiteName.replace('api.',''),
-      url: pageDataGet[0].seo.opengraphUrl.replace('api.',''),
-      images: pageDataGet[0].seo.opengraphImage.sourceUrl.replace('api.',''),
+      description: pageDataGet[0].seo.metaDesc.replace('api.', ''),
+      siteName: pageDataGet[0].seo.opengraphSiteName.replace('api.', ''),
+      url: pageDataGet[0].seo.opengraphUrl.replace('api.', ''),
+      images: pageDataGet[0].seo.opengraphImage.sourceUrl.replace('api.', ''),
       locale: 'en_US',
-      type: pageDataGet[0].seo.opengraphType.replace('api.',''),
-      articleModifiedTime: pageDataGet[0].seo.opengraphModifiedTime.replace('api.',''),
+      type: pageDataGet[0].seo.opengraphType.replace('api.', ''),
+      articleModifiedTime: pageDataGet[0].seo.opengraphModifiedTime.replace('api.', ''),
 
     },
     // twitter: {
