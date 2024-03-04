@@ -42,13 +42,15 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
+
+  
   return (
     <html lang="en">
       <body>
         <Header />
-        <div style={{ marginTop: '72px' }}>
+        <main>
           {children}
-        </div>
+        </main>
         <Footer />
       </body>
     </html>
