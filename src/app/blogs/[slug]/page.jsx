@@ -118,8 +118,8 @@ export default async function BlogsSinglePage({ params }) {
 
   return (
     <>
-      <section className="spacing-100 mt-5">
-        <div className="container mt-sm-5">
+      <section className="spacing-100">
+        <div className="container">
           <div className="col-12">
             <h1 className='heading-secondary text-tertiary'>{blogPosts[0].title}</h1>
             <p className='text-small text-primary my-4'>{formatBlogDate(blogPosts[0].date)}</p>
