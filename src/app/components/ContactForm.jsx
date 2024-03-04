@@ -57,9 +57,9 @@ export default function ContactForm() {
 
     setSuccessAlert(true)
 
-    console.log(headerPost)
+    //console.log(headerPost)
 
-    //console.log('Test')
+    ////console.log('Test')
 
   }
 

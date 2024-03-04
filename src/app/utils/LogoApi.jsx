@@ -30,9 +30,9 @@ const LogoApi = async () =>  {
 
      const logoUrl = data.mediaItems.nodes[0].sourceUrl
     const logoAlt = data.mediaItems.nodes[0].altText
-   // console.log(headerPost)
+   // //console.log(headerPost)
     return [logoUrl, logoAlt]
-    //console.log(headerPost)
+    ////console.log(headerPost)
 
 
   //return headerPost
@@ -45,7 +45,7 @@ const LogoApi = async () =>  {
   export const logoUrl = logoData[0]
   export const logoAlt = logoData[1]
 
-//console.log(logoData[1]+'----asdadadasd')
+////console.log(logoData[1]+'----asdadadasd')
 
 
  

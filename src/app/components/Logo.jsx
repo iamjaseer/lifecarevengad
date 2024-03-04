@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
-
-
+import Images from './Images';
 
 function Logo(props) {
 
@@ -11,8 +9,17 @@ function Logo(props) {
     } = props
 
     return (<>
-<Link aria-label="Logo" href="/">
-            <Image width='350' height='45' src={url} alt={alt} className='logo d-block w-100' />
+        <Link aria-label="Logo" href="/">
+            <Images
+                imageurl={url}
+                styles={''}
+                quality={100}
+                width={'350'}
+                height={'45'}
+                alt={alt}
+                placeholder={false}
+                classes={'logo d-block w-100'}
+            />
         </Link>
     </>)
 
