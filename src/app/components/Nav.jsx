@@ -22,24 +22,6 @@ function Header(props) {
     logoalt
   } = props
 
-  const targetRef = useRef();
-  const [dimensions, setDimensions] = useState(0);
-
-
-
-
-
-
-  //cookies().set('name', 'lee')
-
-
-  useLayoutEffect(() => {
-    if (targetRef.current) {
-      setDimensions(targetRef.current.offsetHeight);
-      localStorage.setItem('header_height', dimensions)
-    }
-  }, [dimensions]);
-
 
 
 
@@ -78,7 +60,7 @@ function Header(props) {
 
   return (<>
     {/* HEADER START */}
-    <header ref={targetRef} className={`sticky ${scrollDirection === "down" ? "nav-down" : "nav-up"} py-4 position-fixed`}>
+    <header className={`sticky ${scrollDirection === "down" ? "nav-down" : "nav-up"} py-4 position-sticky`}>
       <div className="container">
         <div className="row">
           <div className="col-12 d-flex align-items-center justify-content-between">
