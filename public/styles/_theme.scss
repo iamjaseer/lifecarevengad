@@ -296,6 +296,14 @@ footer {
   min-height: inherit;
 }
 
+.content {
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // top: 0;
+  // bottom: 0;
+  // z-index: 1;
+}
 
 .about,
 .cta {
@@ -497,11 +505,6 @@ hr{
   a{
     color:$PC;
   }
-  img{
-   
-      border-radius: 1rem !important;
-
-  }
 }
 
 .doctor-photo{
@@ -529,10 +532,4 @@ hr{
 
 img{
   height: auto !important;
-}
-
-.page-header{
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
 }
