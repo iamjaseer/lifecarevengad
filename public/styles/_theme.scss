@@ -57,6 +57,10 @@ header {
     @media only screen and (max-width: 1199px) {
       max-width: 250px;;
       }
+
+      @media only screen and (max-width: 575px) {
+        max-width:220px !important;
+        }
      
   }
 
@@ -86,6 +90,15 @@ header {
   &.open {
     background-image: url(https://res.cloudinary.com/dnpyq0ocz/image/upload/v1588441892/icon-hamburger-close.svg);
   }
+
+
+  @media only screen and (max-width: 575px) {
+    width: auto !important;
+  height: auto !important;
+  padding: 0;
+    }
+
+
 }
 
 .panel {
@@ -296,14 +309,6 @@ footer {
   min-height: inherit;
 }
 
-.content {
-  // position: absolute;
-  // left: 0;
-  // right: 0;
-  // top: 0;
-  // bottom: 0;
-  // z-index: 1;
-}
 
 .about,
 .cta {
@@ -505,6 +510,11 @@ hr{
   a{
     color:$PC;
   }
+  img{
+   
+      border-radius: 1rem !important;
+
+  }
 }
 
 .doctor-photo{
@@ -532,4 +542,10 @@ hr{
 
 img{
   height: auto !important;
+}
+
+.page-header{
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
 }
