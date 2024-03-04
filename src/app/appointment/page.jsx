@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import RoundAnimation from "../components/RoundAnimation";
-import { wordpressGraphQlApiUrl } from "../utils/variables";
+import { wordpressGraphQlApiUrl  } from "../utils/variables";
 import Loading from "../components/Loading";
 
 
@@ -8,121 +8,93 @@ import Loading from "../components/Loading";
 
 
 
-export default async function Appoinment() {
-
-
-  const ContactInfo = dynamic(() => import('../components/ContactInfo'), {
-    ssr: false,
-    loading: () => <Loading />
-  });
-
-  return (
-    <>
-      <section className="spacing-100">
-        <div>
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <h1 className='heading-secondary text-primary mb-5'>Send us Your feedback!</h1>
-              </div>
-            </div>
-          </div>
-          <ContactInfo />
-        </div>
-        <RoundAnimation />
-      </section>
-
-    </>
-  )
-}
-
-
 
 
 //PAGE QUERY
 async function getPageData() {
-
-  const res = await fetch(wordpressGraphQlApiUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: ` query Posts {
-        pages(where: {id: 1110}) {
-          nodes {
-            title
-            featuredImage {
-              node {
-                altText
-                sourceUrl
-              }
-            }
-            seo {
-            canonical
-              metaDesc
-              metaKeywords
-              title
-              opengraphDescription
-              opengraphSiteName
-              opengraphUrl
-              opengraphImage {
-                altText
-                link
-                sourceUrl
-              }
-              opengraphType
-              opengraphTitle
-              opengraphModifiedTime
-              twitterDescription
-              twitterTitle
-              twitterImage {
-                sourceUrl
-              }
-            }
+  const query = `
+  {
+    pages(where: {id: 1110}) {
+      nodes {
+        title
+        featuredImage {
+          node {
+            altText
+            sourceUrl
           }
         }
-  }
-`,
-    }),
-    next: { revalidate: 10 },
-  },
-    {
-      cache: 'force-cache',
-      cache: 'no-store'
+        pageACF {
+          about
+          sectionDescription
+          sectionHeading
+          subHeading
+        }
+        seo {
+          metaDesc
+          metaKeywords
+          title
+          opengraphDescription
+          opengraphSiteName
+          opengraphUrl
+          opengraphImage {
+            altText
+            link
+            sourceUrl
+          }
+          opengraphType
+          opengraphTitle
+          opengraphModifiedTime
+          twitterDescription
+          twitterTitle
+          twitterImage {
+            sourceUrl
+          }
+        }
+      }
     }
-  )
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
   }
+    `;
 
-  return res.json()
+  const res = await fetch(
+    wordpressGraphQlApiUrl + `?query=${encodeURIComponent(
+      query
+    )}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: {
+        revalidate: 0,
+      },
+    }
+  );
+
+  const { data } = await res.json();
+
+  return data.pages.nodes;
 }
 
 
+const page = await getPageData();
 
-export async function generateMetadata() {
+//console.log(page)
 
-  const pagedata = await getPageData()
-  const pageDataGet = pagedata.data.pages.nodes
+export async function generateMetadata({ params }) {
 
-  console.log(pagedata.data.pages.nodespageDataGet)
+
 
   return {
-    title: pageDataGet[0].seo.title.replace('api.', ''),
-    description: pageDataGet[0].seo.metaDesc.replace('api.', ''),
-    alternates: {
-      canonical: pageDataGet[0].seo.canonical.replace('api.', ''),
-    },
+    title: page[0].seo.title,
+    description:page[0].seo.metaDesc,
     openGraph: {
-      description: pageDataGet[0].seo.metaDesc.replace('api.', ''),
-      siteName: pageDataGet[0].seo.opengraphSiteName.replace('api.', ''),
-      url: pageDataGet[0].seo.opengraphUrl.replace('api.', ''),
-      images: pageDataGet[0].seo.opengraphImage.sourceUrl.replace('api.', ''),
+      description: page[0].seo.metaDesc,
+      siteName: page[0].seo.opengraphSiteName,
+      url: page[0].seo.opengraphUrl,
+      images: page[0].seo.opengraphImage.sourceUrl,
       locale: 'en_US',
-      type: pageDataGet[0].seo.opengraphType.replace('api.', ''),
-      articleModifiedTime: pageDataGet[0].seo.opengraphModifiedTime.replace('api.', ''),
+      type: page[0].seo.opengraphType,
+      articleModifiedTime: page[0].seo.opengraphModifiedTime,
 
     },
     // twitter: {
@@ -133,3 +105,31 @@ export async function generateMetadata() {
     // },
   }
 }
+
+
+
+
+
+export default async function Appoinment() {
+
+
+  const ContactInfo = dynamic(() => import('../components/ContactInfo'), {
+    ssr: false,
+    loading: () => <Loading/>
+  });
+
+  return (
+    <>
+  
+        <section className="spacing-100">
+          <div>
+          <ContactInfo/>
+          </div>
+          <RoundAnimation />
+        </section>
+   
+    </>
+  )
+}
+
+

@@ -1,108 +1,132 @@
 import Image from "next/image";
-import { wordpressGraphQlApiUrl } from "../utils/variables";
+import { wordpressGraphQlApiUrl  } from "../utils/variables";
 
-export default async function DoctorsList() {
-
-
-  const data = await getDoctorsData()
-  //console.log(data.data.doctors.nodes)
-  const doctorsPosts = data.data.doctors.nodes
+export  default async function DoctorsList() {
 
 
-
-  const departmentCat = async (id) => {
-
-
-    const res = await fetch(wordpressGraphQlApiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: ` query Posts {
-            categories(where: { termTaxonomId: `+ id + `}) {
+  const { data } = await fetch(wordpressGraphQlApiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      query:
+        ` query Posts {
+          doctors {
               nodes {
-                name
-                description
+                title
+                content
+               
+               categories{
+                nodes{
+                  taxonomyName
+                  termTaxonomyId
+                 }
+              }
+                featuredImage {
+                  node {
+                    altText
+                    sourceUrl
+                  }
+                }
+                doctorACF {
+                  time
+                  id
+                }
               }
             }
       }
-    `,
-      }),
-      next: { revalidate: 10 },
+      
+    `
+    }),
+    next: { revalidate: 10 }
+  }).then(res => res.json())
+
+  let doctorsPosts = data.doctors.nodes
+
+  //console.log(doctorsPosts.categories.nodes.taxonomyName)
+
+
+
+  
+
+const departmentCat = async (id) =>  {
+
+  
+
+  const { data } = await fetch(wordpressGraphQlApiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
     },
-      {
-        cache: 'force-cache',
-        cache: 'no-store'
-      }
-    )
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
-    }
-
-
-    const dat_ = await res.json()
-
-
-    //console.log(dat_.data.categories.nodes[0].name)
-
-    return dat_.data.categories.nodes[0].name
-
-
-  }
-
-
-  const departmentCatDescription = async (id) => {
-
-
-
-    const res = await fetch(wordpressGraphQlApiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: ` query Posts {
+    body: JSON.stringify({
+      query:
+        ` query Posts {
           categories(where: { termTaxonomId: `+ id + `}) {
             nodes {
               name
               description
             }
           }
-    }
-  `,
-      }),
-      next: { revalidate: 10 },
+        }
+      
+    `
+    }),
+    next: { revalidate: 10 }
+  }).then(res => res.json())
+
+  let catDepartment = data.categories.nodes
+
+  //console.log(catDepartment[0].name)
+
+  return catDepartment[0].name
+
+
+}
+
+
+const departmentCatDescription = async (id) =>  {
+
+
+  const { data } = await fetch(wordpressGraphQlApiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
     },
-      {
-        cache: 'force-cache',
-        cache: 'no-store'
-      }
-    )
+    body: JSON.stringify({
+      query:
+        ` query Posts {
+          categories(where: { termTaxonomId: `+ id + `}) {
+            nodes {
+              name
+              description
+            }
+          }
+        }
+      
+    `
+    }),
+    next: { revalidate: 10 }
+  }).then(res => res.json())
 
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
-    }
+  let catDepartment = data.categories.nodes
+
+  //console.log(catDepartment[0].name)
+
+  return catDepartment[0].description
 
 
-    const dat_ = await res.json()
+}
 
-
-    //console.log(dat_.data.categories.nodes[0].description)
-
-    return dat_.data.categories.nodes[0].description
-
-  }
 
   return (
-    <>
-      <section className='spacing-100 pt-0 text-tertiary pt-sm-5 mt-sm-5'>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              {doctorsPosts.map((doctor, key) => {
-                return (<>
+   <>
+     <section className='spacing-100 pt-0 text-tertiary pt-sm-5 mt-sm-5'>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                {doctorsPosts.map((doctor, key) => {
+                  return(<>
                   <div className="sticky-column clearfix" id={doctor.doctorACF.id} key={key} data-aos="fade-up">
                     <div className="left sticky">
                       <h2 className='heading-secondary text-tertiary text-capitalize'>{departmentCat(doctor.categories.nodes[0].termTaxonomyId)} </h2>
@@ -117,68 +141,12 @@ export default async function DoctorsList() {
                       </div>
                     </div>
                   </div>
-                </>)
-              })}
+                  </>)
+                })}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </>
+        </section>
+   </>
   )
 }
-
-
-//DOCTORS DATA
-async function getDoctorsData() {
-
-  const res = await fetch(wordpressGraphQlApiUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: ` query Posts {
-        doctors {
-          nodes {
-            title
-            content
-           
-           categories{
-            nodes{
-              taxonomyName
-              termTaxonomyId
-             }
-          }
-            featuredImage {
-              node {
-                altText
-                sourceUrl
-              }
-            }
-            doctorACF {
-              time
-              id
-            }
-          }
-        }
-  }
-`,
-    }),
-    next: { revalidate: 10 },
-  },
-    {
-      cache: 'force-cache',
-      cache: 'no-store'
-    }
-  )
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-
-  return res.json()
-}
-
-
-
-

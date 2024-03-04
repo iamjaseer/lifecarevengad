@@ -9,9 +9,43 @@ import { wordpressGraphQlApiUrl } from "../utils/variables";
 
 export default async function ContactInfo() {
 
-    const pagedata = await getPageData()
-//console.log(pagedata.data.allContactInfos.edges[0].node)
-const contactInfos = pagedata.data.allContactInfos.edges[0].node
+
+
+    const { data } = await fetch(wordpressGraphQlApiUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            query:
+                `query Posts {
+          allContactInfos {
+            edges {
+              node {
+                content
+                contactInfoAcf {
+                    address
+                    email
+                    facebook
+                    instagram
+                    phone
+                    apponmentPageTopBoxDescription
+                    contactFormDescription
+                    contactFormHeading
+                }
+              }
+            }
+          }
+        }
+    `
+        }),
+        next: { revalidate: 10 }
+    }).then(res => res.json())
+
+    let contactInfos = data.allContactInfos.edges[0].node
+
+    //console.log(contactInfos)
+
 
 
     return (
@@ -25,12 +59,12 @@ const contactInfos = pagedata.data.allContactInfos.edges[0].node
                         </div>
                     </div>
                 </div>
-                {/* <div className="row my-sm-5 my-4"> */}
-                    {/* <div className="col-12"> */}
-                    {/* <h2 className='heading-secondary text-primary' dangerouslySetInnerHTML={{ __html: contactInfos.contactInfoAcf.contactFormHeading }} /> */}
-                    {/* </div> */}
-                {/* </div> */}
-                <div className="row mt-5">
+                <div className="row my-sm-5 my-4">
+                    <div className="col-12">
+                        <h2 className="heading-secondary text-primary">{contactInfos.contactInfoAcf.contactFormHeading}</h2>
+                    </div>
+                </div>
+                <div className="row">
                     <div className="col-12">
                         <div className="box p-sm-5 d-md-flex align-items-center justify-content-between" >
                             <div className="row">
@@ -51,52 +85,3 @@ const contactInfos = pagedata.data.allContactInfos.edges[0].node
         </>
     )
 }
-
-
-
-
-//HOME DATA
-async function getPageData() {
-
-    const res = await fetch(wordpressGraphQlApiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: ` query Posts {
-            allContactInfos {
-                edges {
-                  node {
-                    content
-                    contactInfoAcf {
-                        address
-                        email
-                        facebook
-                        instagram
-                        phone
-                        apponmentPageTopBoxDescription
-                        contactFormDescription
-                        contactFormHeading
-                    }
-                  }
-                }
-              }
-    }
-  `,
-      }),
-      next: { revalidate: 10 },
-    },
-      {
-        cache: 'force-cache',
-        cache: 'no-store'
-      }
-    )
-  
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
-    }
-  
-    return res.json()
-  }
-  

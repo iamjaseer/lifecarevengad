@@ -5,9 +5,37 @@ import Link from "next/link";
 
 export default async function DepartmentList() {
 
-  const data = await getDepartmentData()
-//console.log(data.data.allDepartments.nodes)
-const departmentPosts = data.data.allDepartments.nodes
+
+    const { data } = await fetch(wordpressGraphQlApiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          query:
+            `query Posts {
+                allDepartments {
+                    nodes {
+                      content
+                      title
+                      featuredImage {
+                        node {
+                          altText
+                          sourceUrl
+                        }
+                      }
+                    }
+                  }
+    }
+          `
+        }),
+        next: { revalidate: 10 }
+      }).then(res => res.json())
+  
+      let departmentPosts = data.allDepartments.nodes
+  
+      //console.log(data.posts.nodes[0].title)
+
 
 
   return (
@@ -21,7 +49,7 @@ const departmentPosts = data.data.allDepartments.nodes
               </div>
               <div className="col-xl-7 d-flex align-items-center justify-content-center">
                 <div className="ps-xl-5">
-                  <h2 className='heading-secondary text-tertiary mb-3'>{department.title}</h2>
+                  <h3 className='heading-secondary text-tertiary mb-2'>{department.title}</h3>
                   <div dangerouslySetInnerHTML={{ __html: department.content }} />
                   <Link aria-label="Doctors" className='mt-3 btn btn-outline-primary  px-4 py-3 rounded-1 text-uppercase' href={'/doctors#' + department.title.toLowerCase().split(' ').join('_')}>Doctors</Link>
                 </div>
@@ -32,47 +60,4 @@ const departmentPosts = data.data.allDepartments.nodes
       </section>
     </>
   )
-}
-
-
-
-
-//DEPARTMENT DATA
-async function getDepartmentData() {
-
-  const res = await fetch(wordpressGraphQlApiUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: ` query Posts {
-        allDepartments {
-          nodes {
-            content
-            title
-            featuredImage {
-              node {
-                altText
-                sourceUrl
-              }
-            }
-          }
-        }
-  }
-`,
-    }),
-    next: { revalidate: 10 },
-  },
-    {
-      cache: 'force-cache',
-      cache: 'no-store'
-    }
-  )
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-
-  return res.json()
 }
