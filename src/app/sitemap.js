@@ -13,14 +13,12 @@ export default async function sitemap() {
   const posts = postData.map((item) => ({
     url: `${frontendUrl}/blogs/${item.slug}/`,
     //lastModified:  `${item.modified}-0000`,
-   // images: 2
   }));
 
  
   const routes = pageData.map((item) => ({
-    url: `${frontendUrl}/${item.slug}/`,
+    url: (frontendUrl+'/'+item.slug.replace('home','')+'/').replace(/([^:]\/)\/+/g, "$1"),
     //lastModified:  `${item.modified}-0000`,
-   //images: 2
   }));
  
   return [...routes, ...posts];
