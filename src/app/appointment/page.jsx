@@ -33,7 +33,7 @@ export default async function Appoinment() {
             <div className="row">
               <div className="col-12">
                 <div className="box p-sm-5 d-lg-flex align-items-center justify-content-between" >
-                  <h2 className="me-lg-5 text-normal">{contactInfos.contactInfoAcf.apponmentPageTopBoxDescription}</h2>
+                  <p className="me-lg-5 text-normal">{contactInfos.contactInfoAcf.apponmentPageTopBoxDescription}</p>
                   <Link aria-label="Call Us" href={"tel:" + contactInfos.contactInfoAcf.phone} class="btn btn-secondary btn-sm-full py-3 px-3 text-uppercase mt-4 mt-lg-0">Call us {contactInfos.contactInfoAcf.phone}</Link>
                 </div>
               </div>
