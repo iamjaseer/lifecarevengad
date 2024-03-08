@@ -53,7 +53,7 @@ export default async function DoctorsPage() {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h2 className="text-normal" data-aos="fade-up" data-aos-delay={500} dangerouslySetInnerHTML={{ __html: page[0].pageACF.about }} />
+              <p className="text-normal" data-aos="fade-up" data-aos-delay={500} dangerouslySetInnerHTML={{ __html: page[0].pageACF.about }} />
               <hr className='mt-5 border-1' />
             </div>
           </div>
