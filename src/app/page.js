@@ -99,7 +99,7 @@ export default async function Home() {
               <span className='heading-secondary'
                 data-aos="fade-up" dangerouslySetInnerHTML={{ __html: pageDataGet.doctorsHeading }} />
               <p className='mt-4' data-aos="fade-up" data-aos-delay={500}>{pageDataGet.doctorsDescription} </p>
-              <Link aria-label="Meet our doctors" href={getURL('/doctors')} className='btn btn-secondary-outline p-3 px-4 text-uppercase mt-3'
+              <Link rel="nofollow" aria-label="Meet our doctors" href={getURL('/doctors')} className='btn btn-secondary-outline p-3 px-4 text-uppercase mt-3'
                 data-aos="fade-up" data-aos-delay={500}
               >Meet our Doctors</Link>
             </div>
