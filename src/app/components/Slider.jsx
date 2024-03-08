@@ -22,7 +22,7 @@ export default function Slider(props) {
         {data.map((doctor, key) => {
           return <Carousel.Item key={key}>
             <>
-              <Link aria-label="Doctor" href={'doctors#' + doctor.doctorACF.id}>
+              <Link rel="nofollow" aria-label="Doctor" href={'doctors#' + doctor.doctorACF.id}>
                 <Images
                 placeholder={true}
                   imageurl={doctor.featuredImage.node.sourceUrl}

@@ -31,7 +31,7 @@ const departmentPosts = data.data.allDepartments.nodes
                 <div className="ps-xl-5">
                   <h2 className='heading-secondary text-tertiary mb-3'>{department.title}</h2>
                   <div dangerouslySetInnerHTML={{ __html: department.content }} />
-                  <Link aria-label="Doctors" className='mt-3 btn btn-outline-primary  px-4 py-3 rounded-1 text-uppercase' href={'/doctors#' + department.title.toLowerCase().split(' ').join('_')}>Doctors</Link>
+                  <Link rel="nofollow" aria-label="Doctors" className='mt-3 btn btn-outline-primary  px-4 py-3 rounded-1 text-uppercase' href={'/doctors#' + department.title.toLowerCase().split(' ').join('_')}>Doctors</Link>
                 </div>
               </div>
             </div>
@@ -41,8 +41,6 @@ const departmentPosts = data.data.allDepartments.nodes
     </>
   )
 }
-
-
 
 
 //DEPARTMENT DATA

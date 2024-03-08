@@ -40,7 +40,7 @@ switch(props.type) {
                </div>
                <div className="col-xl-6">
                  <div  dangerouslySetInnerHTML={{ __html: props.description }} />
-                 <Link aria-label="Lifecare link"  href={getURL('/specialties')} className='btn btn-outline p-3 px-4 text-uppercase mt-4'>Specialties</Link>
+                 <Link rel="nofollow" aria-label="Lifecare link"  href={getURL('/specialties')} className='btn btn-outline p-3 px-4 text-uppercase mt-4'>Specialties</Link>
                </div>
              </div>
            </div>
@@ -84,7 +84,7 @@ switch(props.type) {
                   <div className="col-12">
                   <span className='heading-secondary mb-sm-3 mb-3 d-block' data-aos="fade-up" dangerouslySetInnerHTML={{ __html: props.heading }} />
                     <p className='mb-0' data-aos="fade-up" data-aos-delay={500}>{props.description}</p>
-                    <Link aria-label="Lifecare vengad link" data-aos="fade-up" data-aos-delay={500} href={getURL('/'+props.link+'')} className='btn btn-outline p-3 px-4 text-uppercase mt-4'>{props.button}</Link>
+                    <Link rel="nofollow" aria-label="Lifecare vengad link" data-aos="fade-up" data-aos-delay={500} href={getURL('/'+props.link+'')} className='btn btn-outline p-3 px-4 text-uppercase mt-4'>{props.button}</Link>
                   </div>
                 </div>
               </div>

@@ -68,19 +68,19 @@ function Header(props) {
             <nav className="d-flex align-items-center justify-content-between">
               <ul className="list-inline mb-0 me-4 d-none d-lg-block">
                 <li className="list-inline-item">
-                  <Link aria-label="Home" href={getURL("/")}>Home</Link>
+                  <Link rel="nofollow" aria-label="Home" href={getURL("/")}>Home</Link>
                 </li>
                 <li className="list-inline-item">
-                  <Link aria-label="Doctors" href={getURL("/doctors")}>Doctors</Link>
+                  <Link rel="nofollow" aria-label="Doctors" href={getURL("/doctors")}>Doctors</Link>
                 </li>
                 <li className="list-inline-item">
-                  <Link aria-label="Specialties" href={getURL("/specialties")}>Specialties</Link>
+                  <Link rel="nofollow" aria-label="Specialties" href={getURL("/specialties")}>Specialties</Link>
                 </li>
                 <li className="list-inline-item">
-                  <Link aria-label="Blog" href={getURL("/blogs")}>Blog</Link>
+                  <Link rel="nofollow" aria-label="Blog" href={getURL("/blogs")}>Blog</Link>
                 </li>
                 <li className="list-inline-item">
-                  <Link aria-label="Appointment" href={getURL("/appointment")}>Appointment</Link>
+                  <Link rel="nofollow" aria-label="Appointment" href={getURL("/appointment")}>Appointment</Link>
                 </li>
               </ul>
               <button
@@ -99,7 +99,7 @@ function Header(props) {
                   </defs>
                 </svg>
               </button>
-              <Link aria-label="Phone" href="tel:9207814444" className="btn btn-primary btn-md px-4 py-3 rounded-1 text-uppercase d-none d-xl-block">BOOKING
+              <Link rel="nofollow" aria-label="Phone" href="tel:9207814444" className="btn btn-primary btn-md px-4 py-3 rounded-1 text-uppercase d-none d-xl-block">BOOKING
                 9207814444 </Link>
             </nav>
           </div>
@@ -121,19 +121,19 @@ function Header(props) {
         </button>
         <ul className="list-unstyled mb-0">
           <li>
-            <Link aria-label="Home" href={getURL("/")} onClick={() => setOpen(false)}>Home</Link>
+            <Link rel="nofollow" aria-label="Home" href={getURL("/")} onClick={() => setOpen(false)}>Home</Link>
           </li>
           <li >
-            <Link aria-label="Doctors" href={getURL("/doctors")} onClick={() => setOpen(false)}>Doctors</Link>
+            <Link rel="nofollow" aria-label="Doctors" href={getURL("/doctors")} onClick={() => setOpen(false)}>Doctors</Link>
           </li>
           <li >
-            <Link aria-label="Specialties" href={getURL("/specialties")} onClick={() => setOpen(false)}>Specialties</Link>
+            <Link rel="nofollow" aria-label="Specialties" href={getURL("/specialties")} onClick={() => setOpen(false)}>Specialties</Link>
           </li>
           <li >
-            <Link aria-label="Blog" href={getURL("/blogs")} onClick={() => setOpen(false)}>Blog</Link>
+            <Link rel="nofollow" aria-label="Blog" href={getURL("/blogs")} onClick={() => setOpen(false)}>Blog</Link>
           </li>
           <li >
-            <Link aria-label="Appointment" href={getURL("/appointment")} onClick={() => setOpen(false)}>Appointment</Link>
+            <Link rel="nofollow" aria-label="Appointment" href={getURL("/appointment")} onClick={() => setOpen(false)}>Appointment</Link>
           </li>
         </ul>
       </div>

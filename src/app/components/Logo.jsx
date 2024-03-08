@@ -9,7 +9,7 @@ function Logo(props) {
     } = props
 
     return (<>
-        <Link aria-label="Logo" href="/">
+        <Link aria-label="Logo" href="/" rel="nofollow">
             <Images
                 imageurl={url}
                 styles={''}
