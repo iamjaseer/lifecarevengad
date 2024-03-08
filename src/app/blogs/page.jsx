@@ -65,7 +65,7 @@ export default async function AllBlogPosts(props) {
             {blogPosts.map((blog, key) => {
               return <div className="col-xl-6 mb-4" key={key}>
                 <div className="box p-sm-4 p-3">
-                  <Link aria-label="Blog" href={'blogs/' + blog.slug}>
+                  <Link rel="nofollow" aria-label="Blog" href={'blogs/' + blog.slug}>
                     <Images
                     placeholder={true}
                     imageurl={blog.featuredImage.node.sourceUrl}
