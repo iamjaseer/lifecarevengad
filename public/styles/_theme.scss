@@ -544,8 +544,9 @@ img{
   height: auto !important;
 }
 
-.page-header{
+.page-header, .fixed-bg{
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
+  background-size: cover !important;
 }
