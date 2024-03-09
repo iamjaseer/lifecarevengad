@@ -7,7 +7,7 @@ import getURL from "../homeUrl";
 import Image from 'next/image';
 import Logo from './Logo';
 //import { cookies } from 'next/headers'
-
+import {AosAnimation} from "./Aos";
 
 
 
@@ -60,7 +60,7 @@ function Header(props) {
 
   return (<>
     {/* HEADER START */}
-    <header className={`sticky ${scrollDirection === "down" ? "nav-down" : "nav-up"} py-4 position-sticky`}>
+    <header className={`sticky ${scrollDirection === "down" ? "nav-down" : "nav-up"} py-4 position-sticky`} >
       <div className="container">
         <div className="row">
           <div className="col-12 d-flex align-items-center justify-content-between">
