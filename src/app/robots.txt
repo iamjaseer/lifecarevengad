@@ -1,4 +1,5 @@
 User-agent: *
-Disallow: 
+Disallow: /departments/
+
 
 Sitemap: https://lifecarevengad.com/sitemap.xml
