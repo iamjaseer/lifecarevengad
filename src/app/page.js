@@ -1,40 +1,33 @@
 import { wordpressGraphQlApiUrl, frontendUrl } from "../app/utils/variables";
-import SectionBanner from './components/SectionBanner';
+// import SectionBanner from './components/SectionBanner';
 import RoundAnimation from './components/RoundAnimation';
 import Link from 'next/link';
 import getURL from './homeUrl';
 import Doctors from './components/Doctors';
 import Images from './components/Images';
-
+import { AOSInit } from './components/Aos'
 
 
 export default async function Home() {
 
 
 
-  // const Home = dynamic(() => import('../app/components/Home'), {
-  //   ssr: false,
-  //   loading: () => <Loading/>
-  // });
-
-
-
   const pagedata = await getHomeData()
   //console.log(pagedata.data.pages.edges[0].node.homeAcf.bannerImage.node)
   const pageDataGet = pagedata.data.pages.edges[0].node.homeAcf
-
-
-
-
-
   ////console.log(pagedata.data.pages.nodes[0].bannerTitle)
+
+
+
+
   return (
     <>
+      <AOSInit />
       {/* HERO START */}
       <section className="hero spacing-100 d-flex align-items-center text-white position-relative">
         <div className="container">
           <div className="row">
-            <div className="col-12" data-aos='fade-up'>
+            <div className="col-12" data-aos="fade-up">
               <h1 className='heading-primary mb-3' >{pageDataGet.bannerTitle}</h1>
               <p
               >{pageDataGet.bannerDescription}</p>
@@ -55,7 +48,20 @@ export default async function Home() {
       {/* HERO END */}
       {/* <Home/> */}
       {/* ABOUT START */}
-      <SectionBanner background={pageDataGet.aboutBackground.node.sourceUrl} heading={pageDataGet.aboutHeading} description={pageDataGet.aboutDescription} link={'specialties'} button={pageDataGet.button} />
+      <section className='cta parallax-banner fixed-bg h-half spacing-100 d-flex align-items-center justify-content-center text-center position-relative text-white' style={{ backgroundImage: `url('${pageDataGet.aboutBackground.node.sourceUrl}')` }}>
+        <div className="content d-flex align-items-center justify-content-center">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <span className='heading-secondary mb-sm-3 mb-3 d-block' data-aos="fade-up" dangerouslySetInnerHTML={{ __html: pageDataGet.aboutHeading }} />
+                <p className='mb-0' data-aos="fade-up" data-aos-delay={500}>{pageDataGet.aboutDescription}</p>
+                <Link rel="nofollow" aria-label="Lifecare vengad link" data-aos="fade-up" data-aos-delay={500} href={getURL('/specialties')} className='btn btn-outline p-3 px-4 text-uppercase mt-4'>{pageDataGet.button}</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <SectionBanner background={pageDataGet.aboutBackground.node.sourceUrl} heading={pageDataGet.aboutHeading} description={pageDataGet.aboutDescription} link={'specialties'} button={pageDataGet.button} /> */}
       {/* ABOUT END */}
       {/* MISSION START */}
       <section className="mission h-half d-flex align-items-center justify-content-center overflow-hidden position-relative">
@@ -113,10 +119,38 @@ export default async function Home() {
       </section>
       {/* DOCTORS END */}
       {/* SPECIALITIES START */}
-      <SectionBanner type="column" background={pageDataGet.specialtiesImage.node.sourceUrl} heading={pageDataGet.specialititiesHeading} description={pageDataGet.specialititiesDescription} />
+      <section className='specialities parallax-banner h-half spacing-100 d-flex align-items-center justify-content-center position-relative text-white fixed-bg' style={{ backgroundImage: `url('${pageDataGet.specialtiesImage.node.sourceUrl}')` }}>
+        <div className="content d-flex align-items-center">
+          <div className="container">
+            <div className="row">
+              <div className="col-xl-6">
+                <span className='heading-secondary mb-sm-4 mb-4 d-block' dangerouslySetInnerHTML={{ __html: pageDataGet.specialititiesHeading }} />
+              </div>
+              <div className="col-xl-6">
+                <div dangerouslySetInnerHTML={{ __html: pageDataGet.specialititiesDescription }} />
+                <Link rel="nofollow" aria-label="Lifecare link" href={getURL('/specialties')} className='btn btn-outline p-3 px-4 text-uppercase mt-4'>Specialties</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <SectionBanner type="column" background={pageDataGet.specialtiesImage.node.sourceUrl} heading={pageDataGet.specialititiesHeading} description={pageDataGet.specialititiesDescription} /> */}
       {/* SPECIALITIES END */}
       {/* CTA BOTTOM START */}
-      <SectionBanner background={pageDataGet.aboutBackground.node.sourceUrl} heading={pageDataGet.ctaHeading} description={pageDataGet.ctaDescription} link={'appointment'} button={pageDataGet.ctaButton} />
+      <section className='cta parallax-banner fixed-bg h-half spacing-100 d-flex align-items-center justify-content-center text-center position-relative text-white' style={{ backgroundImage: `url('${pageDataGet.aboutBackground.node.sourceUrl}')` }}>
+        <div className="content d-flex align-items-center justify-content-center">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <span className='heading-secondary mb-sm-3 mb-3 d-block' data-aos="fade-up" dangerouslySetInnerHTML={{ __html: pageDataGet.ctaHeading }} />
+                <p className='mb-0' data-aos="fade-up" data-aos-delay={500}>{pageDataGet.ctaDescription}</p>
+                <Link rel="nofollow" aria-label="Lifecare vengad link" data-aos="fade-up" data-aos-delay={500} href={getURL('/specialties')} className='btn btn-outline p-3 px-4 text-uppercase mt-4'>{pageDataGet.ctaButton}</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <SectionBanner background={pageDataGet.aboutBackground.node.sourceUrl} heading={pageDataGet.ctaHeading} description={pageDataGet.ctaDescription} link={'appointment'} button={pageDataGet.ctaButton} /> */}
       {/* CTA BOTTOM END */}
     </>
 
@@ -345,54 +379,3 @@ export async function generateMetadata() {
     // },
   }
 }
-
-
-// async function getData() {
-
-// const res = await fetch(`https://api.lifecarevengad.com/graphql`,  {
-//   method: "POST",
-//   headers: {
-//       "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify({
-//       query: `
-//   query Posts {
-//       posts(first: 5) {
-//           nodes {
-//               databaseId
-//             title
-//              date
-//              slug
-//             featuredImage {
-//               node {
-//                 altText
-//                 sourceUrl
-//               }
-//             }
-//           }
-//         }
-// }
-// `,
-//   }),
-//   next: { revalidate: 10 },
-// },
-// {
-//   cache: 'force-cache' ,
-//   cache: 'no-store'
-// }
-// )
-
-
-
-// if (!res.ok) {
-//   // This will activate the closest `error.js` Error Boundary
-//   throw new Error('Failed to fetch data')
-// }
-
-
-// return res.json()
-
-
-
-// }
-
